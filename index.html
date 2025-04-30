@@ -10,7 +10,12 @@
   <main>
     <h1>David Cooper</h1>
     <p>CEO | Digital Infrastructure Leader </p>
-    <p>Email: <a href="mailto:dave@cooper.exchange">dave@cooper.exchange</a></p>
+    <script>
+      const user = "dave";
+      const domain = "cooper.exchange";
+      const email = user + "@" + domain;
+      document.write('<a href="mailto:' + email + '">' + email + '</a>');
+    </script>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/davidmcooper/">Dave Cooper</a></p>
   </main>
 </body>
