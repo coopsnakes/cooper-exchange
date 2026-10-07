@@ -1,78 +1,144 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Cooper – Professional Bio</title>
+  <title>David Cooper – CEO, Zerra | Professional Bio</title>
+  <meta name="description" content="David Cooper is CEO of Zerra (AGP Group), leading APAC hyperscale data centre development. Previously Microsoft, Telstra Purple and Hewlett Packard.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #070b1a;
+      --bg2: #0d1430;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e8ecff;
+      --muted: #9aa5d1;
+      --accent: #5b8cff;
+      --accent2: #b06bff;
+      --accent3: #22e3c4;
+      --grad: linear-gradient(120deg, var(--accent), var(--accent2) 55%, var(--accent3));
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f7f6;
-      color: #333;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 80% -10%, #1b2a6b 0%, transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, #3a1a6b 0%, transparent 55%),
+                  var(--bg);
+      background-attachment: fixed;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    main {
-      max-width: 800px;
-      margin: 50px auto;
-      background: #ffffff;
-      padding: 40px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; }
+    a { color: var(--accent3); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero { padding: 96px 0 56px; position: relative; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--card-border);
+      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
     }
-    h1, h2, h3 {
-      margin-bottom: 15px;
-      color: #2c3e50;
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); box-shadow: 0 0 12px var(--accent3); animation: pulse 2s infinite; }
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5.6rem);
+      line-height: 1.02; letter-spacing: -0.03em; margin: 22px 0 14px;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+      background-size: 200% 100%; animation: shimmer 8s linear infinite;
     }
-    h2 {
-      font-weight: 500;
-      margin-top: 0;
+    .role { font-size: clamp(1.1rem, 2.6vw, 1.6rem); font-weight: 500; margin: 0 0 20px; }
+    .role span { color: var(--muted); }
+    .lede { max-width: 680px; color: var(--muted); font-size: 1.1rem; margin: 0 0 28px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px; border-radius: 12px; font: inherit; font-weight: 600; cursor: pointer;
+      border: 1px solid var(--card-border); color: var(--text); background: var(--card);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
     }
-    section {
-      margin-bottom: 30px;
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 30px rgba(91, 140, 255, 0.3); text-decoration: none; }
+    .btn.primary { background: var(--grad); border: 0; color: #060a18; }
+    .btn.primary:hover { box-shadow: 0 8px 36px rgba(176, 107, 255, 0.5); }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    .eyebrow { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent3); margin-bottom: 8px; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -0.02em; margin-bottom: 22px; }
+
+    /* Headline deals */
+    .deals { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .card:hover { transform: translateY(-4px); border-color: rgba(91, 140, 255, 0.6); box-shadow: 0 16px 50px rgba(30, 60, 160, 0.35); }
+    .card .icon {
+      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 1.25rem;
+      background: var(--grad); color: #060a18; margin-bottom: 16px;
     }
-    ul li {
-      margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
+    .card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .card p { margin: 0; color: var(--muted); }
+    .note { font-size: 0.78rem; color: var(--muted); margin-top: 14px; opacity: 0.8; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+    .stat { text-align: center; padding: 24px 12px; border-radius: 18px; background: var(--card); border: 1px solid var(--card-border); }
+    .stat b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stat span { color: var(--muted); font-size: 0.9rem; }
+
+    /* Timeline */
+    .timeline { position: relative; margin-left: 12px; padding-left: 34px; border-left: 2px solid transparent; border-image: linear-gradient(var(--accent), var(--accent2), var(--accent3)) 1; }
+    .job { position: relative; margin-bottom: 22px; }
+    .job::before {
+      content: ""; position: absolute; left: -43px; top: 30px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent); box-shadow: 0 0 14px var(--accent);
     }
-    ul li::before {
-      content: "•";
-      color: #3498db;
-      position: absolute;
-      left: 0;
+    .job.now::before { border-color: var(--accent3); box-shadow: 0 0 18px var(--accent3); animation: pulse 2s infinite; }
+    .job .co { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent3); }
+    .job h3 { font-size: 1.25rem; margin: 4px 0 2px; }
+    .job .when { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+    .job p { margin: 0 0 8px; color: #cdd5f5; }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      padding: 9px 16px; border-radius: 999px; font-size: 0.92rem;
+      background: var(--card); border: 1px solid var(--card-border); transition: all .2s;
     }
-    .contact-info a {
-      color: #3498db;
-      text-decoration: none;
+    .chip:hover { background: var(--grad); color: #060a18; border-color: transparent; transform: translateY(-2px); }
+
+    .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .two ul { list-style: none; margin: 0; padding: 0; }
+    .two li { padding: 6px 0; color: #cdd5f5; }
+    .two li i { color: var(--accent3); width: 24px; }
+
+    .reveal-btn { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: inherit; cursor: pointer; }
+    footer { padding: 40px 0 64px; color: var(--muted); font-size: 0.85rem; text-align: center; }
+
+    /* Motion */
+    @keyframes shimmer { to { background-position: -200% 0; } }
+    @keyframes pulse { 50% { opacity: 0.45; } }
+    .fade { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+    .fade.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      h1, .dot, .job.now::before { animation: none; }
+      .fade { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
     }
-    .contact-info .reveal {
-      background: none;
-      border: 0;
-      padding: 0;
-      font: inherit;
-      color: #3498db;
-      cursor: pointer;
-    }
-    .contact-info .reveal:hover {
-      text-decoration: underline;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-    .company-logo {
-      height: 40px;
-      vertical-align: middle;
-      margin-right: 10px;
+    @media (max-width: 560px) {
+      .hero { padding-top: 64px; }
+      .timeline { padding-left: 26px; }
+      .job::before { left: -35px; }
     }
   </style>
   <script>
@@ -82,77 +148,130 @@
       var addr = user + "@" + domain;
       var a = document.createElement("a");
       a.href = "mailto:" + addr;
-      a.textContent = addr;
+      a.innerHTML = '<i class="fa-solid fa-envelope"></i> ';
+      a.appendChild(document.createTextNode(addr));
+      a.className = "btn primary";
       btn.replaceWith(a);
     }
+    document.addEventListener("DOMContentLoaded", function () {
+      var els = document.querySelectorAll(".fade");
+      if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(function (e) { io.observe(e); });
+    });
   </script>
 </head>
 <body>
-  <main>
-    <h1>David Cooper</h1>
-    <h2>Technology & Sales Executive</h2>
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge"><span class="dot"></span> CEO · Zerra · AGP Group</span>
+      <h1>David Cooper</h1>
+      <p class="role">Technology &amp; Sales Executive <span>· Data Centres · AI Infrastructure · APAC</span></p>
+      <p class="lede">CEO of Zerra, building hyperscale data centre capacity across Asia Pacific. I bring a robust track record of driving significant revenue growth, spearheading market expansion and leading high-performance teams, with a blend of sales, business development and technical expertise that turns multi-billion-dollar infrastructure bets into delivered capacity.</p>
+      <div class="cta">
+        <span id="email"><button type="button" class="btn primary reveal-btn" onclick="revealEmail(this)"><i class="fa-solid fa-envelope"></i> Click to reveal email</button><noscript>Enable JavaScript to view, or use LinkedIn.</noscript></span>
+        <a class="btn" href="https://www.linkedin.com/in/davidmcooper/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+  </header>
 
-<section>
-  <h3>Profile</h3>
-  <p>I bring a robust track record of driving significant revenue growth, spearheading market expansion, and leading high-performance sales teams across the Asia Pacific region. As a strong communicator and collaborator, I have excelled in building multidisciplinary teams, fostering performance and constant improvement.</p>
-</section>
+  <main class="wrap">
+    <section class="fade">
+      <div class="eyebrow">Headline deals</div>
+      <h2>Signed. Funded. Building.</h2>
+      <div class="deals">
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Anthropic</h3>
+          <p>Signed lease documentation with Anthropic for the first stage of Australia’s largest data centre campus, in partnership with Macquarie Capital and Australian Data Centres.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-sack-dollar"></i></div>
+          <h3>Macquarie Capital</h3>
+          <p>Raised capital with Macquarie Capital to fund delivery of the campus and underpin Zerra’s growth platform.</p>
+        </article>
+      </div>
+      <p class="note">First-stage lease subject to Foreign Investment Review Board approval. Source: <a href="https://realassets.ipe.com/news/macquarie-partners-with-zerra-and-adc-to-build-australias-largest-data-centre-campus-for-anthropic/10138513.article" target="_blank" rel="noopener">IPE Real Assets</a>.</p>
+    </section>
 
-<section class="contact-info">
-  <h3>Contact</h3>
-  <ul>
-    <li>Email: <span id="email"><button type="button" class="reveal" onclick="revealEmail(this)">Click to reveal</button><noscript>Enable JavaScript to view, or contact via LinkedIn below.</noscript></span></li>
-    <li>LinkedIn: <a href="https://www.linkedin.com/in/davidmcooper/" target="_blank">linkedin.com/in/davidmcooper</a></li>
-  </ul>
-</section>
+    <section class="fade">
+      <div class="stats">
+        <div class="stat"><b>20+</b><span>years in cloud, AI &amp; infrastructure</span></div>
+        <div class="stat"><b>$500m+</b><span>annual revenue run at Telstra Purple (AUD)</span></div>
+        <div class="stat"><b>500+</b><span>consultants and 40+ sales specialists led</span></div>
+      </div>
+    </section>
 
-<section>
-  <h3>Core Experience</h3>
-  <ul>
-    <li>Infrastructure Planning & Acquisition</li>
-    <li>Investment Strategy and Acquisition</li>
-    <li>Risk Identification & Mitigation</li>
-    <li>Business Case Development</li>
-    <li>Target Setting & Reporting</li>
-    <li>Strategic Account Planning</li>
-    <li>Sales & Channel Program Management</li>
-    <li>Go To Market Planning</li>
-    <li>Customer Relationship Management</li>
-    <li>Strategic Selling, Negotiating & Closing</li>
-  </ul>
-</section>
+    <section class="fade">
+      <div class="eyebrow">Career</div>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article class="job now">
+          <div class="co">Zerra · AGP Group</div>
+          <h3>Chief Executive Officer</h3>
+          <div class="when">Feb 2025 – Now</div>
+          <p>Leading AGP Group’s APAC data centre platform: strategy, capital, customers and delivery.</p>
+          <p>Signed lease documentation with Anthropic for the first stage of Australia’s largest data centre campus, and raised capital with Macquarie Capital to fund its delivery.</p>
+        </article>
+        <article class="job">
+          <div class="co">Microsoft</div>
+          <h3>Head of Region Design &amp; Technology, APAC</h3>
+          <div class="when">2021 – Jan 2025</div>
+          <p>Led the team that assured, accelerated and de-risked Microsoft’s multi-billion-dollar APAC infrastructure investments across data centres, telecommunications and power, working between engineering and customer-facing teams to maximise the impact of Azure and AI investment.</p>
+        </article>
+        <article class="job">
+          <div class="co">Telstra</div>
+          <h3>Head of Sales, Telstra Purple</h3>
+          <div class="when">2014 – 2020</div>
+          <p>Established, led and grew Telstra’s end-to-end technology professional and managed services business, across direct and indirect go-to-market models and partnerships.</p>
+          <p>Built and ran the national sales organisation, growing to over 40 sales specialists and 500 consultants, delivering over $500m (AUD) of revenue per annum across cloud-enabled professional and managed services.</p>
+        </article>
+        <article class="job">
+          <div class="co">Hewlett Packard</div>
+          <h3>Chief Technology Officer, Public Sector &amp; Future Cities</h3>
+          <div class="when">2011 – 2014</div>
+          <p>Developed and prosecuted HP’s position on public sector technology innovation, leading Future Cities initiatives designed to leverage HP technology into multi-billion-dollar country-led investments.</p>
+          <p>Worked with HP country leadership to spearhead investment discussions with government ministers, technology partners and potential investors. Key successes: Government Cloud in Singapore, and City Operation Centres in Singapore and New Zealand.</p>
+        </article>
+      </div>
+    </section>
 
-<section>
-  <h3>Work Experience</h3>
+    <section class="fade">
+      <div class="eyebrow">Capabilities</div>
+      <h2>Core experience</h2>
+      <div class="chips">
+        <span class="chip">Infrastructure Planning &amp; Acquisition</span>
+        <span class="chip">Capital Raising &amp; Investment Strategy</span>
+        <span class="chip">Risk Identification &amp; Mitigation</span>
+        <span class="chip">Business Case Development</span>
+        <span class="chip">Target Setting &amp; Reporting</span>
+        <span class="chip">Strategic Account Planning</span>
+        <span class="chip">Sales &amp; Channel Program Management</span>
+        <span class="chip">Go-To-Market Planning</span>
+        <span class="chip">Customer Relationship Management</span>
+        <span class="chip">Strategic Selling, Negotiating &amp; Closing</span>
+      </div>
+    </section>
 
-  <h4><img src="agp-logo.png" alt="AGP Group" class="company-logo">AGP Group – Data Centre Business<br>CEO (Feb 2025 – Present)</h4>
-  <p>Leading strategic growth, operational excellence, and innovation for AGP Group's Data Centre business.</p>
-
-  <h4><img src="microsoft-logo.png" alt="Microsoft" class="company-logo">Microsoft<br>Head of Region Design & Technology, APAC (2021 – Jan 2025)</h4>
-  <p>Maximised impact of Azure and AI investments across APAC, managing multi-billion-dollar infrastructure investments.</p>
-
-  <h4><img src="telstra-logo.png" alt="Telstra" class="company-logo">Telstra Purple<br>Head of Sales (2014–2020)</h4>
-  <p>Built national sales teams delivering $500m annually in cloud-enabled services.</p>
-
-  <h4><img src="hp-logo.png" alt="HP" class="company-logo">Hewlett Packard<br>CTO, Public Sector & Future Cities (2011 – 2014)</h4>
-  <p>Led initiatives in government cloud solutions and city operation centres, significantly influencing major public sector investments.</p>
-</section>
-
-<section>
-  <h3>Education</h3>
-  <ul>
-    <li>Honours Degree in Systems Engineering, Australian National University, 1994–1998</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Hobbies</h3>
-  <ul>
-    <li>Dragon boat racing</li>
-    <li>3D modelling and printing</li>
-  </ul>
-</section>
-```
-
+    <section class="fade two">
+      <div class="card">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+        <ul>
+          <li>Honours Degree in Systems Engineering<br><span style="color:var(--muted)">Australian National University, 1994 – 1998</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-person-rowing"></i> Beyond work</h3>
+        <ul>
+          <li><i class="fa-solid fa-water"></i>Dragon boat racing</li>
+          <li><i class="fa-solid fa-cube"></i>3D modelling and printing</li>
+        </ul>
+      </div>
+    </section>
   </main>
+
+  <footer>© David Cooper · Technology &amp; Sales Executive</footer>
 </body>
 </html>
