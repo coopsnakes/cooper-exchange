@@ -55,6 +55,17 @@
       color: #3498db;
       text-decoration: none;
     }
+    .contact-info .reveal {
+      background: none;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      color: #3498db;
+      cursor: pointer;
+    }
+    .contact-info .reveal:hover {
+      text-decoration: underline;
+    }
     .contact-info a:hover {
       text-decoration: underline;
     }
@@ -65,12 +76,15 @@
     }
   </style>
   <script>
-    function revealEmail() {
-      var user = "dave";
-      var domain = "cooper.exchange";
-      document.getElementById("email").innerHTML = '<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>';
+    function revealEmail(btn) {
+      var user = atob("ZGF2ZQ==");
+      var domain = atob("Y29vcGVyLmV4Y2hhbmdl");
+      var addr = user + "@" + domain;
+      var a = document.createElement("a");
+      a.href = "mailto:" + addr;
+      a.textContent = addr;
+      btn.replaceWith(a);
     }
-    window.onload = revealEmail;
   </script>
 </head>
 <body>
@@ -86,7 +100,7 @@
 <section class="contact-info">
   <h3>Contact</h3>
   <ul>
-    <li>Email: <span id="email"></span></li>
+    <li>Email: <span id="email"><button type="button" class="reveal" onclick="revealEmail(this)">Click to reveal</button><noscript>Enable JavaScript to view, or contact via LinkedIn below.</noscript></span></li>
     <li>LinkedIn: <a href="https://www.linkedin.com/in/davidmcooper/" target="_blank">linkedin.com/in/davidmcooper</a></li>
   </ul>
 </section>
